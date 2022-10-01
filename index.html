@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>Panorama</title>
+	<style type="text/css">
+		body{
+			background-color: ghostwhite;
+		}
+		img{
+			padding: 20px;
+			border-radius: 50px;
+		}
+		.child {
+			  display: inline-block;
+			  vertical-align: middle;
+			  text-align: left;
+			  font-size: 20;
+			  font-family: sans-serif;
+		}
+		.center{
+			padding: auto;
+			  text-align: center;
+		}
+		.buto{
+	        display: inline-block;
+	        outline: 0;
+	        border: none;
+	        cursor: pointer;
+	        font-weight: 600;
+	        border-radius: 4px;
+	        font-size: 13px;
+	        height: 30px;
+	        background-color: #0000000d;
+	        color: #0e0e10;
+	        padding: 0 20px;
+		}
+		.buto:hover {
+	            background-color: #0000001a;
+	        }
+	</style>
+</head>
+<body onload="first() , show()">
+	<script type="text/javascript">
+		var i = 0
+		var cars = {
+			image : ["cars/Mercedes-Benz-G.jpg","cars/bmw7.jpg","cars/audia8.jpg","cars/teslas.jpg"],
+			mark : ["Mercedes","BMW","Audi","Tesla"],
+			model : ["Class G","7 Series","A8","S"],
+			fuel : ["Diesel","Diesel","Diesel","Electric"],
+			price : ["$156,450","$86,800","$86,500","$129,990"],
+			speed : ["239kmph"," 250 kmph","267 kmph","348 kmph"]		}
+
+		function first() {
+			i = 0
+			document.getElementById('carImage').src = cars.image[i]
+		}
+		function last(){
+			i = cars.image.length - 1
+			document.getElementById('carImage').src = cars.image[i]
+		}
+		function next(){
+			i++
+			if (i<cars.image.length) {
+				document.getElementById('carImage').src = cars.image[i]
+			}
+			else{
+				i = 0
+				document.getElementById('carImage').src = cars.image[i]
+			}
+		}
+		function previous(){
+			i--
+			if (i >= 0) {
+				document.getElementById('carImage').src = cars.image[i]
+			}
+			else{
+				i = cars.image.length -1
+				document.getElementById('carImage').src = cars.image[i]
+			}
+		}
+		function show(){
+			document.getElementById("details").innerHTML ="Mark : " + cars.mark[i] + "</br></br>" + "Model : " + cars.model[i] + "</br></br>" + "Fuel : " + cars.fuel[i] + "</br></br>" + "Price : " +cars.price[i] + "</br></br>" + "Speed : " + cars.speed[i]
+		}
+	</script>
+	<div class="center">
+
+		<div class = "child">
+			<img height="400px" width="700px" id="carImage">
+		</div>
+		<div class="child" id = "details"></div>
+		<div class="center">
+			<button class="buto" onclick="first() , show()">First</button>
+			<button class="buto" onclick="next() , show()">Next</button>
+			<button class="buto" onclick="previous() , show()">Previous</button>
+			<button class="buto" onclick="last() , show()">Last</button>
+		</div>
+	</div>
+</body>
+</html>
