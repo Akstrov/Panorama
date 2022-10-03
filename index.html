@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Panorama</title>
-	<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2211/2211380.png">
+	<link rel="icon" type="image/x-icon" href="cars/favicon.ico">
 	<style type="text/css">
 		body{
 			background-color: ghostwhite;
@@ -53,10 +53,12 @@
 		function first() {
 			i = 0
 			document.getElementById('carImage').src = cars.image[i]
+			show()
 		}
 		function last(){
 			i = cars.image.length - 1
 			document.getElementById('carImage').src = cars.image[i]
+			show()
 		}
 		function next(){
 			i++
@@ -67,6 +69,7 @@
 				i = 0
 				document.getElementById('carImage').src = cars.image[i]
 			}
+			show()
 		}
 		function previous(){
 			i--
@@ -77,10 +80,18 @@
 				i = cars.image.length -1
 				document.getElementById('carImage').src = cars.image[i]
 			}
+			show()
 		}
 		function show(){
 			document.getElementById("details").innerHTML ="Mark : " + cars.mark[i] + "</br></br>" + "Model : " + cars.model[i] + "</br></br>" + "Fuel : " + cars.fuel[i] + "</br></br>" + "Price : " +cars.price[i] + "</br></br>" + "Speed : " + cars.speed[i]
 		}
+		function auto(){
+			t = setInterval("next()",2000)
+		}
+		function stop(){
+			clearTimeout(t)
+		}
+		
 	</script>
 	<div class="center">
 
@@ -88,11 +99,16 @@
 			<img height="400px" width="700px" id="carImage">
 		</div>
 		<div class="child" id = "details"></div>
-		<div class="center">
-			<button class="buto" onclick="first() , show()">First</button>
-			<button class="buto" onclick="next() , show()">Next</button>
-			<button class="buto" onclick="previous() , show()">Previous</button>
-			<button class="buto" onclick="last() , show()">Last</button>
+		<div>
+			<button class="buto" onclick="first()">First</button>
+			<button class="buto" onclick="next() ">Next</button>
+			<button class="buto" onclick="previous()">Previous</button>
+			<button class="buto" onclick="last()">Last</button>
+		</div>
+		<br>
+		<div>
+			<button class = "buto" onclick="auto()">Panorama</button>
+			<button class = "buto" onclick="stop()">Stop</button>
 		</div>
 	</div>
 </body>
