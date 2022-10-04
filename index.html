@@ -39,7 +39,7 @@
 	        }
 	</style>
 </head>
-<body onload="first() , show()">
+<body onload="first() , show(),auto()">
 	<script type="text/javascript">
 		var i = 0
 		var cars = {
@@ -48,7 +48,7 @@
 			model : ["Class G","7 Series","A8","S"],
 			fuel : ["Diesel","Diesel","Diesel","Electric"],
 			price : ["$156,450","$86,800","$86,500","$129,990"],
-			speed : ["239kmph"," 250 kmph","267 kmph","348 kmph"]		}
+			speed : ["239kmph"," 250 kmph","267 kmph","348 kmph"]}
 
 		function first() {
 			i = 0
@@ -86,7 +86,11 @@
 			document.getElementById("details").innerHTML ="Mark : " + cars.mark[i] + "</br></br>" + "Model : " + cars.model[i] + "</br></br>" + "Fuel : " + cars.fuel[i] + "</br></br>" + "Price : " +cars.price[i] + "</br></br>" + "Speed : " + cars.speed[i]
 		}
 		function auto(){
+<<<<<<< HEAD
 			t = setInterval("next()",2000)
+=======
+			t = setInterval(next,2000)
+>>>>>>> test
 		}
 		function stop(){
 			clearTimeout(t)
